@@ -163,6 +163,7 @@
 		E717AE631A888C6400C8C2BF /* player_1.png in Resources */ = {isa = PBXBuildFile; fileRef = E717AE611A888C6400C8C2BF /* player_1.png */; };
 		E717AE641A888C6400C8C2BF /* player_2.png in Resources */ = {isa = PBXBuildFile; fileRef = E717AE621A888C6400C8C2BF /* player_2.png */; };
 		E717AE661A88A79900C8C2BF /* youxi.png in Resources */ = {isa = PBXBuildFile; fileRef = E717AE651A88A79900C8C2BF /* youxi.png */; };
+		E717AE681A88C5EF00C8C2BF /* bb_.png in Resources */ = {isa = PBXBuildFile; fileRef = E717AE671A88C5EF00C8C2BF /* bb_.png */; };
 /* End PBXBuildFile section */
 
 /* Begin PBXFileReference section */
@@ -471,6 +472,7 @@
 		E717AE611A888C6400C8C2BF /* player_1.png */ = {isa = PBXFileReference; lastKnownFileType = image.png; path = player_1.png; sourceTree = "<group>"; };
 		E717AE621A888C6400C8C2BF /* player_2.png */ = {isa = PBXFileReference; lastKnownFileType = image.png; path = player_2.png; sourceTree = "<group>"; };
 		E717AE651A88A79900C8C2BF /* youxi.png */ = {isa = PBXFileReference; lastKnownFileType = image.png; path = youxi.png; sourceTree = "<group>"; };
+		E717AE671A88C5EF00C8C2BF /* bb_.png */ = {isa = PBXFileReference; lastKnownFileType = image.png; path = bb_.png; sourceTree = "<group>"; };
 /* End PBXFileReference section */
 
 /* Begin PBXFrameworksBuildPhase section */
@@ -934,6 +936,7 @@
 		E717AE181A835CB800C8C2BF /* Art */ = {
 			isa = PBXGroup;
 			children = (
+				E717AE671A88C5EF00C8C2BF /* bb_.png */,
 				E717AE651A88A79900C8C2BF /* youxi.png */,
 				E717AE611A888C6400C8C2BF /* player_1.png */,
 				E717AE621A888C6400C8C2BF /* player_2.png */,
@@ -1033,6 +1036,7 @@
 				E717AE481A84A48E00C8C2BF /* guai3_.png in Resources */,
 				E717AC7E1A835A1200C8C2BF /* Default@2x.png in Resources */,
 				E717AE4A1A84A48E00C8C2BF /* guai5_.png in Resources */,
+				E717AE681A88C5EF00C8C2BF /* bb_.png in Resources */,
 				E717AE311A837B2100C8C2BF /* zhong.png in Resources */,
 				E717AE271A835CBA00C8C2BF /* projectile.png in Resources */,
 				E717AE221A835CBA00C8C2BF /* monster-hd.png in Resources */,
@@ -1284,6 +1288,7 @@
 				E717AE171A835A1500C8C2BF /* Release */,
 			);
 			defaultConfigurationIsVisible = 0;
+			defaultConfigurationName = Release;
 		};
 /* End XCConfigurationList section */
 	};

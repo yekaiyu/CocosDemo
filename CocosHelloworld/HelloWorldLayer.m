@@ -115,7 +115,7 @@
         _projectiles = [[NSMutableArray alloc] init];
         _says = [[NSMutableArray alloc] init];
         _monstersNames = [[NSArray alloc] initWithObjects:@"guai3_.png",@"guai4_.png",
-                          @"guai5_.png",@"guai6_.png",@"guai7_.png",nil];
+                          @"guai5_.png",@"guai2_.png",@"guai1_.png",nil];
         
         
         [[SimpleAudioEngine sharedEngine] playBackgroundMusic:@"background-music-aac.caf"];
@@ -135,11 +135,11 @@
         
         
         labelPros = [CCLabelTTF labelWithString:@"剩余飞镖:50" fontName:@"Arial" fontSize:20];
-        labelPros.color = ccc3(0,0,0);
+        labelPros.color = ccc3(255,0,0);
         labelPros.position = ccp(winSize.width-60,25);
         [self addChild:labelPros];
         labelMonsters = [CCLabelTTF labelWithString:@"消灭:0" fontName:@"Arial" fontSize:20];
-        labelMonsters.color = ccc3(0,0,0);
+        labelMonsters.color = ccc3(255,0,0);
         labelMonsters.position = ccp(winSize.width-150,25);
         [self addChild:labelMonsters];
         
@@ -194,7 +194,7 @@
     [self removeChild:labelPros cleanup:YES];
     
     labelPros = [CCLabelTTF labelWithString:[NSString stringWithFormat:@"剩余飞镖:%d",50-countProjectiles] fontName:@"Arial" fontSize:20];
-    labelPros.color = ccc3(0,0,0);
+    labelPros.color = ccc3(255,0,0);
     CGSize winSize = [[CCDirector sharedDirector] winSize];
     labelPros.position = ccp(winSize.width-60,25);
     
@@ -208,7 +208,7 @@
 
     // Set up initial location of projectile
 
-    _nextProjectile = [[CCSprite spriteWithFile:@"projectile.png"] retain];
+    _nextProjectile = [[CCSprite spriteWithFile:@"bb_.png"] retain];
     _nextProjectile.position = ccp(20, winSize.height/2);
 
     // Determine offset of location to projectile
@@ -300,7 +300,7 @@
             
             [self removeChild:labelMonsters cleanup:YES];
             labelMonsters = [CCLabelTTF labelWithString:[NSString stringWithFormat:@"消灭:%d",_monstersDestroyed] fontName:@"Arial" fontSize:20];
-            labelMonsters.color = ccc3(0,0,0);
+            labelMonsters.color = ccc3(255,0,0);
             CGSize winSize = [[CCDirector sharedDirector] winSize];
             labelMonsters.position = ccp(winSize.width-150,25);
             
@@ -318,7 +318,7 @@
     for (CCSprite *projectile in projectilesToDelete) {
         CGSize winSize = [[CCDirector sharedDirector] winSize];
         CCSprite* say2 = [CCSprite spriteWithFile:@"youxi.png"];
-        say2.position = ccp(130,(player.contentSize.height*1.5 + winSize.height)/2);
+        say2.position = ccp(120,(player.contentSize.height*1.5 + winSize.height)/2);
         [self addChild:say2];
         [_says addObject:say2];
         [_projectiles removeObject:projectile];
