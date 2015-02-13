@@ -15,6 +15,15 @@
 #import "SimpleAudioEngine.h"
 #import "GameOverLayer.h"
 #import "PlayerSprite.h"
+#import "SelfSprite_1.h"
+#import "SelfSprite_2.h"
+#import "SelfSprite_5.h"
+#import "SelfSprite_6.h"
+#import "SelfSprite_7.h"
+#import "SelfSprite_8.h"
+#import "SelfSprite_9.h"
+#import "SelfSprite_10.h"
+#import "SelfSprite.h"
 #pragma mark - HelloWorldLayer
 
 // HelloWorldLayer implementation
@@ -29,6 +38,7 @@
     NSInteger fireMonsters;
     CCLabelTTF* labelPros;
     CCLabelTTF* labelMonsters;
+    NSMutableArray* selfSprites;
 }
 
 // Helper class method that creates a Scene with the HelloWorldLayer as the only child.
@@ -49,10 +59,15 @@
 
 - (void) addMonster{
     CCSprite* monster;
+   
+    NSInteger i = arc4random()%8;
+    NSMutableArray* currentArray = [selfSprites objectAtIndex:i];
+//    monster = [CCSprite spriteWithFile:[_monstersNames objectAtIndex:i]];
     
-    NSInteger i = arc4random()%5;
+    NSString* count = [currentArray objectAtIndex:1];
     
-    monster = [CCSprite spriteWithFile:[_monstersNames objectAtIndex:i]];
+    monster = [SelfSprite player:[currentArray objectAtIndex:0] withCount:count.integerValue];
+    
     
     CGSize winSize = [CCDirector sharedDirector].winSize;
     
@@ -66,7 +81,9 @@
     
     monster.position = ccp(winSize.width+monster.contentSize.width/2, actualY);
     monster.tag = 1;
-
+    CCJumpBy *jump=[CCJumpBy actionWithDuration:arc4random()%2+1 position:ccp(0,0) height:50 jumps:arc4random()%3+3];
+    CCSequence *sequence=[CCSequence actions:jump,nil];
+    [monster runAction:sequence];
     
     [_monsters addObject:monster];
   
@@ -82,7 +99,7 @@
     CCMoveTo* actionMove = [CCMoveTo actionWithDuration:actualDuration position:ccp(-monster.contentSize.width/2, actualY)];
     
     CCCallBlockN* actionMoveDone = [CCCallBlockN actionWithBlock:^(CCNode *node) {
-        [node removeFromParentAndCleanup:YES];
+        [node removeFromParent];
         
         CCScene* gameOver = [GameOverLayer sceneWithWon:2];
         
@@ -116,6 +133,8 @@
         _says = [[NSMutableArray alloc] init];
         _monstersNames = [[NSArray alloc] initWithObjects:@"guai3_.png",@"guai4_.png",
                           @"guai5_.png",@"guai2_.png",@"guai1_.png",nil];
+        [self initSelfSprite];
+        
         
         
         [[SimpleAudioEngine sharedEngine] playBackgroundMusic:@"background-music-aac.caf"];
@@ -290,7 +309,7 @@
         for (CCSprite *monster in monstersToDelete) {
             //[monster runAction:[CCFadeTo actionWithDuration:1.0 opacity:0]];
             [_monsters removeObject:monster];
-            [self removeChild:monster cleanup:YES];
+            [self removeChild:monster];
         }
         
         if (monstersToDelete.count > 0) {
@@ -318,7 +337,7 @@
     for (CCSprite *projectile in projectilesToDelete) {
         CGSize winSize = [[CCDirector sharedDirector] winSize];
         CCSprite* say2 = [CCSprite spriteWithFile:@"youxi.png"];
-        say2.position = ccp(120,(player.contentSize.height*1.5 + winSize.height)/2);
+        say2.position = ccp(100,(player.contentSize.height*1.5 + winSize.height)/2);
         [self addChild:say2];
         [_says addObject:say2];
         [_projectiles removeObject:projectile];
@@ -338,6 +357,50 @@
         [removesays release];
         
     }
+}
+
+-(void)initSelfSprite
+{
+    selfSprites = [[NSMutableArray alloc] init];
+    NSMutableArray* array7 = [[NSMutableArray alloc]init];
+    [array7 addObject:@"self_1_"];
+    [array7 addObject:@"3"];
+    NSMutableArray* array0 = [[NSMutableArray alloc] init];
+    [array0 addObject:@"self_2_"];
+    [array0 addObject:@"6"];
+    NSMutableArray* array1 = [[NSMutableArray alloc] init];
+    [array1 addObject:@"self_5_"];
+    [array1 addObject:@"6"];
+    NSMutableArray* array2 = [[NSMutableArray alloc] init];
+    [array2 addObject:@"self_6_"];
+    [array2 addObject:@"6"];
+    NSMutableArray* array3 = [[NSMutableArray alloc] init];
+    [array3 addObject:@"self_7_"];
+    [array3 addObject:@"2"];
+    NSMutableArray* array4 = [[NSMutableArray alloc] init];
+    [array4 addObject:@"self_8_"];
+    [array4 addObject:@"7"];
+    NSMutableArray* array5 = [[NSMutableArray alloc] init];
+    [array5 addObject:@"self_9_"];
+    [array5 addObject:@"2"];
+    NSMutableArray* array6 = [[NSMutableArray alloc] init];
+    [array6 addObject:@"self_10_"];
+    [array6 addObject:@"10"];
+    
+    
+    [selfSprites addObject:array0];
+    [selfSprites addObject:array1];
+
+    [selfSprites addObject:array2];
+    [selfSprites addObject:array3];
+    [selfSprites addObject:array4];
+    [selfSprites addObject:array5];
+    [selfSprites addObject:array6];
+    [selfSprites addObject:array7];
+
+    
+    
+    
 }
 
 

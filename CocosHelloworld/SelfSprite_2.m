@@ -1,16 +1,15 @@
 //
-//  PlayerSprite.m
+//  SelfSprite_2.m
 //  CocosHelloworld
 //
-//  Created by Alan on 15-2-9.
+//  Created by yekaiyu on 15/2/10.
 //  Copyright 2015年 Alan. All rights reserved.
 //
 
-#import "PlayerSprite.h"
+#import "SelfSprite_2.h"
 
 
-@implementation PlayerSprite
-
+@implementation SelfSprite_2
 +(id)player{
     
     return [[self alloc] initWithCGImage];
@@ -19,13 +18,13 @@
 
 -(id)initWithCGImage{
     
-    if(self =[super initWithFile:@"player_1.png"]){
+    if(self =[super initWithFile:@"self_2_1.png"]){
         
         NSMutableArray* frames = [NSMutableArray arrayWithCapacity:2];
         
         for(int i=1;i<7;i++){
             
-            NSString* pngFile = [NSString stringWithFormat:@"player3_%d.png",i];
+            NSString* pngFile = [NSString stringWithFormat:@"self_2_%d.png",i];
             
             CCTexture2D* texture = [[CCTextureCache sharedTextureCache] addImage:pngFile];
             
@@ -48,5 +47,4 @@
     return self;
     
 }
-
 @end
